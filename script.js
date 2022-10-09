@@ -9,6 +9,7 @@ const pickCell = (() => {
     textDiv.textContent = `${i % 2 == 1 ? "X" : "O"} to play`;
     checkWin();
     i++;
+    if (i == 9) endGame();
   };
 })();
 
@@ -41,7 +42,11 @@ const checkWin = () => {
 
 const endGame = (winner) => {
   cells.forEach((cell) => cell.classList.add("over"));
-  textDiv.textContent = `${winner} Wins!`;
+  if (winner === undefined) {
+    textDiv.textContent = "It's a draw!";
+  } else {
+    textDiv.textContent = `${winner} Wins!`;
+  }
 };
 
 cells.forEach((cell) => {
