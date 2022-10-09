@@ -7,9 +7,9 @@ const pickCell = (() => {
     if (cell.textContent !== "") return;
     cell.textContent = i % 2 == 0 ? "X" : "O";
     textDiv.textContent = `${i % 2 == 1 ? "X" : "O"} to play`;
-    checkWin();
     i++;
     if (i == 9) endGame();
+    checkWin();
   };
 })();
 
